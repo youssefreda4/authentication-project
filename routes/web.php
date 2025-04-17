@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Auth\ChangePasswordController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
+use App\Http\Controllers\Auth\GithubAuthController;
 use App\Http\Controllers\Auth\GoogleAuthController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
@@ -26,6 +27,9 @@ Route::post('/login', LoginController::class)->name('auth.login');
 
 Route::get('/auth/google/redirect', [GoogleAuthController::class, 'redirect'])->name('auth.google.redirect');
 Route::get('/auth/google/callback', [GoogleAuthController::class, 'callback'])->name('auth.google.callback');
+
+Route::get('/auth/github/redirect', [GithubAuthController::class, 'redirect'])->name('auth.github.redirect');
+Route::get('/auth/github/callback', [GithubAuthController::class, 'callback'])->name('auth.github.callback');
 
 Route::view('/forgot-password', 'auth.forgot-password')->name('password.request');
 Route::view('/reset-password/{token}', 'auth.reset-password')->name('password.reset');
