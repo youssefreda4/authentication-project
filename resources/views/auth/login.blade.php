@@ -11,15 +11,19 @@
 
 <body class="bg-gray-900 text-white flex items-center justify-center h-screen">
   <div class="w-full max-w-md p-8 space-y-6 bg-gray-800 rounded-lg shadow-lg">
+    @session('success')
+      <div class="text-green-500 text-sm my-2">{{ session('success') }}</div>
+    @endsession
+
     @session('error')
-    <div class="text-red-500 text-sm my-2">{{ session('error') }}</div>
+      <div class="text-red-500 text-sm my-2">{{ session('error') }}</div>
     @endsession
     <h2 class="text-3xl font-bold text-center">Login</h2>
     <form action="{{ route('auth.login') }}" method="POST" class="space-y-4">
       @csrf
       <div>
         <label for="email" class="block mb-2 text-sm font-medium">Email</label>
-        <input type="email" id="email" name="email"
+        <input type="email" id="email" name="email" value="{{ old('email') }}"
           class="w-full p-3 rounded bg-gray-700 text-gray-100 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500">
         @error('email')
         <span class="text-sm text-red-500 mt-1">{{ $message }}</span>
@@ -33,6 +37,8 @@
         <span class="text-sm text-red-500 mt-1">{{ $message }}</span>
         @enderror
       </div>
+      <p class="mt-4 text-sm ">Forget your password <a href="{{route("password.request")}}"
+          class="text-blue-400 hover:underline">Reset now</a></p>
       <button type="submit"
         class="w-full py-3 mt-4 bg-blue-600 rounded-lg font-semibold text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500">Login</button>
       <p class="mt-4 text-sm text-center">Don’t have an account? <a href="{{route("register")}}"
