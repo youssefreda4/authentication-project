@@ -41,6 +41,11 @@
           class="text-blue-400 hover:underline">Reset now</a></p>
       <button type="submit"
         class="w-full py-3 mt-4 bg-blue-600 rounded-lg font-semibold text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500">Login</button>
+         <!-- Google Login Link -->
+      <a href="{{ route('auth.google.redirect') }}" class="flex items-center justify-center w-full py-3 mt-4 bg-red-500 rounded-lg font-semibold text-white hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-500">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="currentColor" viewBox="0 0 24 24"><path d="M21.805 10.023h-9.423v3.916h5.423c-.29 1.436-1.171 2.557-2.451 3.26l.025.156 3.571 2.704.247.025c1.925-1.725 3.203-4.318 3.203-7.059 0-.667-.062-1.313-.092-1.902zm-9.423 5.918c-3.05 0-5.558-2.509-5.558-5.558s2.509-5.558 5.558-5.558c1.41 0 2.693.528 3.683 1.396l2.803-2.803c-1.693-1.56-3.897-2.537-6.486-2.537-5.49 0-9.957 4.466-9.957 9.957s4.467 9.957 9.957 9.957c4.9 0 9.018-3.441 9.841-8.045h-3.678c-.73 2.028-2.667 3.5-5.167 3.5z"/></svg>
+        Login with Google
+      </a>
       <p class="mt-4 text-sm text-center">Don’t have an account? <a href="{{route("register")}}"
           class="text-blue-400 hover:underline">Register</a></p>
     </form>
