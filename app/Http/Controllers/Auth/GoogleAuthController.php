@@ -21,13 +21,14 @@ class GoogleAuthController extends Controller
     public function callback()
     {
         $googleUser = Socialite::driver('google')->user();
-
+        // dd($googleUser->avatar);
         $user = User::firstOrCreate(
             ['email'=> $googleUser->getEmail()],
             [
                 'name' => $googleUser->getName(),
                 'email' => $googleUser->getEmail(),
                 'password'=> Hash::make(Str::random(14)),
+                'image' => $googleUser->avatar,
                 // 'email_verified_at' => now(),
                 'otp' =>  rand(100000, 999999),
             ]

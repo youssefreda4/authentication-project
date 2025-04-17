@@ -42,7 +42,9 @@
         <div class="bg-gray-800 rounded-lg shadow-md p-4">
             <div id="profileTab" class="tab-content">
                 <h2 class="text-xl font-semibold mb-4">Update Profile</h2>
-                <form action="{{ route('profile.update') }}" method="POST" class="mb-6">
+                <img src="{{ auth()->user()->image ?? "https://fakeimg.pl/100x100" }}" alt="Profile Picture" class="w-24 h-24 rounded-full border-4 border-gray-500">
+
+                <form action="{{ route('profile.update') }}" method="POST" class="mb-6 mt-2">
                     @csrf
                     @method('put')
                     <div class="mb-4">

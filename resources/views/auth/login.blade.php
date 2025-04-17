@@ -46,15 +46,21 @@
        <!-- Social Login Buttons Row -->
        <div class="flex justify-between mt-4">
         <!-- Google Login Button -->
-        <a href="{{ route('auth.google.redirect') }}" class="flex items-center justify-center w-1/2 py-3 bg-red-500 rounded-lg font-semibold text-white hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-500 mr-2">
+        <a href="{{ route('auth.google.redirect') }}" class="flex items-center justify-center w-1/3 py-3 bg-red-500 rounded-lg font-semibold text-white hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-500 mr-2">
           <i class="fa-brands fa-google fa-lg mr-3"></i>
           Google
         </a>
 
         <!-- GitHub Login Button -->
-        <a href="{{ route('auth.github.redirect') }}" class="flex items-center justify-center w-1/2 py-3 bg-gray-600 rounded-lg font-semibold text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-600 mx-2">
+        <a href="{{ route('auth.github.redirect') }}" class="flex items-center justify-center w-1/3 py-3 bg-gray-600 rounded-lg font-semibold text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-600 mx-2">
           <i class="fa-brands fa-github fa-lg mr-3"></i>
           GitHub
+        </a>
+
+        <!-- Facebook Login Button -->
+        <a href="{{ route('auth.facebook.redirect') }}" class="flex items-center justify-center w-1/3 py-3 bg-blue-600 rounded-lg font-semibold text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 ml-2">
+          <i class="fab fa-facebook-f fa-lg mr-2"></i>
+          Facebook
         </a>
       </div>
       <p class="mt-4 text-sm text-center">Don’t have an account? <a href="{{route("register")}}"

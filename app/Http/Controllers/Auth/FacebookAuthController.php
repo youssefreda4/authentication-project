@@ -10,23 +10,23 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 use Laravel\Socialite\Facades\Socialite;
 
-class GithubAuthController extends Controller
+class FacebookAuthController extends Controller
 {
     public function redirect()
     {
-        return Socialite::driver('github')->redirect();
+        return Socialite::driver('facebook')->redirect();
     }
     
     public function callback()
     {
-        $userGithub = Socialite::driver('github')->user();
+        $userFacebook = Socialite::driver('facebook')->user();
         $user = User::firstOrCreate(
-            ['email'=> $userGithub->getEmail()],
+            ['email'=> $userFacebook->getEmail()],
             [
-                'name' => $userGithub->getName(),
-                'email' => $userGithub->getEmail(),
+                'name' => $userFacebook->getName(),
+                'email' => $userFacebook->getEmail(),
+                'image' => $userFacebook->avatar,
                 'password'=> Hash::make(Str::random(14)),
-                'image' => $userGithub->avatar,
                 // 'email_verified_at' => now(),
                 'otp' =>  rand(100000, 999999),
             ]
