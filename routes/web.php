@@ -1,20 +1,15 @@
 <?php
 
 use App\Http\Controllers\Auth\ChangePasswordController;
-use App\Http\Controllers\Auth\FacebookAuthController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
-use App\Http\Controllers\Auth\GithubAuthController;
-use App\Http\Controllers\Auth\GoogleAuthController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\ResetPasswordController;
+use App\Http\Controllers\Auth\SocialAuthController;
 use App\Http\Controllers\Auth\UpdateProfileController;
 use App\Http\Controllers\Auth\VerifyAccountController;
 use Illuminate\Support\Facades\Route;
-
-
-
 
 
 
@@ -22,18 +17,11 @@ Route::view('/', 'index')->name('index');
 Route::view('/login', 'auth.login')->name('login');
 Route::view('/register', 'auth.register')->name('register');
 
-
 Route::post('/register', RegisterController::class)->name('auth.register');
 Route::post('/login', LoginController::class)->name('auth.login');
 
-Route::get('/auth/google/redirect', [GoogleAuthController::class, 'redirect'])->name('auth.google.redirect');
-Route::get('/auth/google/callback', [GoogleAuthController::class, 'callback'])->name('auth.google.callback');
-
-Route::get('/auth/github/redirect', [GithubAuthController::class, 'redirect'])->name('auth.github.redirect');
-Route::get('/auth/github/callback', [GithubAuthController::class, 'callback'])->name('auth.github.callback');
-
-Route::get('/auth/facebook/redirect', [FacebookAuthController::class, 'redirect'])->name('auth.facebook.redirect');
-Route::get('/auth/facebook/callback', [FacebookAuthController::class, 'callback'])->name('auth.facebook.callback');
+Route::get('/auth/{driver}/redirect', [SocialAuthController::class, 'redirect'])->name('auth.redirect');
+Route::get('/auth/{driver}/callback', [SocialAuthController::class, 'callback'])->name('auth.callback');
 
 Route::view('/forgot-password', 'auth.forgot-password')->name('password.request');
 Route::view('/reset-password/{token}', 'auth.reset-password')->name('password.reset');
