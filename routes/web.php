@@ -4,6 +4,7 @@ use App\Http\Controllers\Auth\ChangePasswordController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
+use App\Http\Controllers\Auth\MagicLoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\Auth\SocialAuthController;
@@ -19,6 +20,10 @@ Route::view('/register', 'auth.register')->name('register');
 
 Route::post('/register', RegisterController::class)->name('auth.register');
 Route::post('/login', LoginController::class)->name('auth.login');
+
+Route::view('/login/magic', 'auth.passwordless-login')->name('login.magic');
+Route::post('/login/magic', [MagicLoginController::class , 'sendMagicLink'])->name('login.magic.link');
+Route::get('/login/magic/{user}', [MagicLoginController::class , 'handleMagicLogin'])->name('login.magic.handle')->middleware('signed');
 
 Route::get('/auth/{driver}/redirect', [SocialAuthController::class, 'redirect'])->name('auth.redirect');
 Route::get('/auth/{driver}/callback', [SocialAuthController::class, 'callback'])->name('auth.callback');

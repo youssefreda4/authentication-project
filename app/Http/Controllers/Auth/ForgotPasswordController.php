@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Auth\ForgotPasswordRequest;
+use App\Http\Requests\Auth\ValidateEmailRequest;
 use App\Mail\SendResetLinkMail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -15,7 +15,7 @@ class ForgotPasswordController extends Controller
     /**
      * Handle the incoming request.
      */
-    public function __invoke(ForgotPasswordRequest $request)
+    public function __invoke(ValidateEmailRequest $request)
     {
         $token = Str::random(60);
         DB::table('password_reset_tokens')->updateOrInsert(

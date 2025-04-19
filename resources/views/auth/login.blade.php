@@ -43,6 +43,8 @@
       <button type="submit"
         class="w-full py-3 mt-4 bg-blue-600 rounded-lg font-semibold text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500">Login</button>
         
+        <p class="mt-4 text-sm">Login without password? <a href="{{ route("login.magic") }}" class="text-blue-400 hover:underline">Login now</a></p>
+
        <!-- Social Login Buttons Row -->
        <div class="flex justify-between mt-4">
         @foreach (config('social.providers') as $provider)
