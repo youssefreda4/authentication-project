@@ -25,7 +25,8 @@ class UpdateProfileRequest extends FormRequest
         $id = Auth::id();
         return [
             'name' => 'required|string|max:255',
-            'email' => 'required|string|email|unique:users,email,'.$id,
+            'email' => 'required|string|email|unique:users,email,' . $id,
+            'phone' => 'nullable|regex:/^01[0,1,2,5][0.9]{8}$/|unique:users,phone,' . $id,
         ];
     }
 }

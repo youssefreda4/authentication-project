@@ -18,10 +18,12 @@ class LoginController extends Controller
      */
     public function __invoke(LoginRequest $request)
     {
-        $user = User::where('email', $request->email)->first();
+        $type = filter_var($request->input('identifier'), FILTER_VALIDATE_EMAIL) ? 'email' : 'phone';
+
+        $user = User::where($type, $request->identifier)->first();
         $user_data = $request->validated();
 
-        if(!$user){
+        if (!$user) {
             return back()->with('error', 'Invalid Credientials!');
         }
 
@@ -34,9 +36,7 @@ class LoginController extends Controller
             return redirect()->route('email.verify', $user->email);
         }
 
-        if (Auth::attempt($user_data)) {
-            return redirect()->intended('profile')->with('success', 'You are in');
-        }
-        return back()->with('error', 'Invalid Credientials!');
+        Auth::login($user);
+        return redirect()->intended('profile')->with('success', 'You are in');
     }
 }

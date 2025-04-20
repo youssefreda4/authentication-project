@@ -21,6 +21,7 @@ class RegisterController extends Controller
         $user = User::create([
             'name' => $user_data['name'],
             'email' => $user_data['email'],
+            'phone' => $user_data['phone'],
             'password' => $user_data['password'],
             'otp' =>  rand(100000, 999999),
         ]);
