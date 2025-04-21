@@ -38,7 +38,7 @@ Route::view("/verify-account/{identifier}", 'auth.verify-account')->name('accoun
 Route::post("/verify-account", [VerifyAccountController::class,'verfiyOtp'])->name('account.send.verify');
 Route::post('/send-verification-otp', [VerifyAccountController::class, 'sendOtp'])->name('account.send.otp.verify');
 
-Route::middleware('auth')->group(function () {
+Route::middleware(['auth','auth.session'])->group(function () {
     Route::view('/profile', 'auth.profile')->name('profile');
     Route::put('/profile', UpdateProfileController::class)->name('profile.update');
     Route::post('/change-password', ChangePasswordController::class)->name('profile.change.password');

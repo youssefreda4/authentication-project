@@ -17,6 +17,7 @@ class UpdateProfileController extends Controller
     {
         $user_data = $request->validated();
         $user = User::find(Auth::id());
+        $user_data['logout_other_devices'] = $request->has('logout_other_devices') ? true : false;
         $user->update($user_data);
 
         return back()->with('success','Profile updated successfully!');

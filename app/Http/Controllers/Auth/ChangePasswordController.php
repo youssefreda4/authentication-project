@@ -22,6 +22,7 @@ class ChangePasswordController extends Controller
             return back()->with('error', 'Current Password incorrect');
         }
         $user->update(['password' => $user_data['new_password']]);
+        Auth::login($user);
         return back()->with('success', 'Your password updated successfully!');
     }
 }
