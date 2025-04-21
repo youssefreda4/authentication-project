@@ -53,4 +53,10 @@ return [
         'redirect' => env('FACEBOOK_CALLBACK_URL'),
     ],
 
+    'whatsapp' => [
+        'access_token' => env('WHATSAPP_ACCESS_TOKEN'),
+        'phone_id' => env('WHATSAPP_PHONE_ID'),
+        'template_name' => env('WHATSAPP_TEMPLATE_NAME'),
+    ]
+
 ];
