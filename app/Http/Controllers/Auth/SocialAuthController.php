@@ -25,9 +25,8 @@ class SocialAuthController extends Controller
         if (!array_key_exists($driver, config('social.providers'))) {
             return redirect()->route('auth.login')->with('error', 'Invalid Driver');
         }
-
         try {
-            $socialUser = Socialite::driver($driver)->user();
+            $socialUser = Socialite::driver($driver)->stateless()->user();
         } catch (\Exception $e) {
             return redirect()->route('auth.login')->with('error', 'Authentication Failed');
         }
