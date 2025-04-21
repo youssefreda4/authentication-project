@@ -40,6 +40,11 @@
                             class="inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-400 hover:border-gray-600 dark:hover:text-gray-300">Change
                             Password</a>
                     </li>
+                    <li class="me-2">
+                        <a href="#" onclick="showTab('browserSessionsTab')"
+                            class="inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-400 hover:border-gray-600">Browser
+                            Sessions</a>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -74,7 +79,8 @@
 
                     <div class="mb-4">
                         <label>
-                            <input type="checkbox" class="accent-red-500/25" name="logout_other_devices" {{ auth()->user()->logout_other_devices ? 'checked' : ''}}/>
+                            <input type="checkbox" class="accent-red-500/25" name="logout_other_devices" {{
+                                auth()->user()->logout_other_devices ? 'checked' : ''}}/>
                             Logout other devices
                         </label>
                     </div>
@@ -121,18 +127,55 @@
                     <button type="submit" class="bg-green-600 text-white px-4 py-2 rounded">Change Password</button>
                 </form>
             </div>
+            <div id="browserSessionsTab" class="tab-content hidden">
+                <h2 class="text-xl font-semibold mb-4 text-white">Browser Sessions</h2>
+                {{-- Desktop --}}
+                @foreach (auth()->user()->sessions()->orderBy('last_activity', 'desc')->get() as $session)
+                <div class="flex items-center justify-between p-3 bg-gray-800 rounded-lg border border-gray-700 mb-4">
+                    <div class="flex items-center">
+                        <i
+                            class="fas fa-{{$session->user_agent['is_desktop'] ? 'desktop' : 'mobile-alt'}} w-6 h-6 text-gray-200 mr-3"></i>
+                        <div>
+                            <div class="font-semibold text-white">
+                                {{$session->user_agent['platform']}} - {{$session->user_agent['browser']}}
+                            </div>
+                            <div class="text-sm text-gray-400">
+                                {{$session->ip_address}} @if ($session->is_this_device)
+                                <span class="text-green-500">This device</span> @endif
+                            </div>
+                            <div class="text-xs text-gray-500">Last Active {{$session->last_activity}}</div>
+                        </div>
+                    </div>
+                    @if (!$session->is_this_device)
+                    <form action="{{ route('auth.other.device.logout',$session) }}" method="post">
+                        @csrf
+                        <button type="submit" class="bg-red-600 text-white px-4 py-2 rounded-md">Logout</button>
+                    </form>
+                    @endif
+                </div>
+                @endforeach
+            </div>
         </div>
     </div>
 
     <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const activeTab = localStorage.getItem('activeTab') || 'profileTab';
+            showTab(activeTab);
+        });
         function showTab(tabId) {
             const tabs = document.querySelectorAll('.tab-content');
             tabs.forEach(tab => {
                 tab.classList.add('hidden');
             });
-
+            const activeTabLink = document.querySelectorAll('a');
+            activeTabLink.forEach(link => {
+                link.classList.remove('border-blue-500', 'text-blue-500');
+            });
             document.getElementById(tabId).classList.remove('hidden');
-            document.getElementById(tabId).classList.add('focus:');
+            const activeLink = document.querySelector(`a[onclick="showTab('${tabId}')"]`);
+            activeLink.classList.add('border-blue-500', 'text-blue-500');
+            localStorage.setItem('activeTab', tabId);
         }
     </script>
 </body>
