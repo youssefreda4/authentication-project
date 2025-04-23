@@ -22,10 +22,11 @@ class RegisterRequest extends FormRequest
     public function rules(): array
     {
         return [
-           'name' => 'required|string|max:255',
-           'email' => 'required|string|email|unique:users,email',
-           'phone' => 'nullable|unique:users,phone|phone:AUTO',
-           'password' => 'required|string|min:6|confirmed'
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|unique:users,email',
+            'phone' => 'nullable|unique:users,phone|phone:AUTO',
+            'password' => 'required|string|min:6|confirmed',
+            'g-recaptcha-response' => 'required|recaptcha',
         ];
     }
 
@@ -33,6 +34,13 @@ class RegisterRequest extends FormRequest
     {
         return [
             'phone.phone' => 'Invalid phone number format',
+        ];
+    }
+
+    public function attributes()
+    {
+        return [
+            'g-recaptcha-response' => 'recaptcha',
         ];
     }
 }
