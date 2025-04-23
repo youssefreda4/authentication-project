@@ -36,7 +36,7 @@ class LoginController extends Controller
             return redirect()->route('account.verify', $user->email);
         }
 
-        Auth::login($user);
+        Auth::login($user,$request->filled('remember'));
         if($user->logout_other_devices){
             Auth::logoutOtherDevices($request->password);
         }

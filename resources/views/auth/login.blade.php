@@ -13,11 +13,11 @@
 <body class="bg-gray-900 text-white flex items-center justify-center h-screen">
   <div class="w-full max-w-md p-8 space-y-6 bg-gray-800 rounded-lg shadow-lg">
     @session('success')
-      <div class="text-green-500 text-sm my-2">{{ session('success') }}</div>
+    <div class="text-green-500 text-sm my-2">{{ session('success') }}</div>
     @endsession
 
     @session('error')
-      <div class="text-red-500 text-sm my-2">{{ session('error') }}</div>
+    <div class="text-red-500 text-sm my-2">{{ session('error') }}</div>
     @endsession
     <h2 class="text-3xl font-bold text-center">Login</h2>
     <form action="{{ route('auth.login') }}" method="POST" class="space-y-4">
@@ -38,23 +38,33 @@
         <span class="text-sm text-red-500 mt-1">{{ $message }}</span>
         @enderror
       </div>
-      <p class="mt-4 text-sm ">Forget your password <a href="{{route("password.request")}}"
+      <p class="mt-4 text-sm ">Forget your password <a href="{{route('password.request')}}"
           class="text-blue-400 hover:underline">Reset now</a></p>
+
+      <div class="flex items-center mb-4">
+        <input type="checkbox" name="remember" id="remember">
+        <label for="remember" class="block text-gray-300 ml-1">Remember Me</label>
+        @error('remember')
+        <div class="text-red-500 text-sm mt-1">{{ $message }}</div>
+        @enderror
+      </div>
       <button type="submit"
         class="w-full py-3 mt-4 bg-blue-600 rounded-lg font-semibold text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500">Login</button>
-        
-        <p class="mt-4 text-sm">Login without password? <a href="{{ route("login.magic") }}" class="text-blue-400 hover:underline">Login now</a></p>
 
-       <!-- Social Login Buttons Row -->
-       <div class="flex justify-between mt-4">
+      <p class="mt-4 text-sm">Login without password? <a href="{{ route('login.magic') }}"
+          class="text-blue-400 hover:underline">Login now</a></p>
+
+      <!-- Social Login Buttons Row -->
+      <div class="flex justify-between mt-4">
         @foreach (config('social.providers') as $provider)
-          <a href="{{ route('auth.redirect',['driver' => $provider['driver']]) }}" class="flex items-center justify-center w-1/3 py-3 {{ $provider['color'] }} rounded-lg font-semibold text-white hover:{{ $provider['hoverColor'] }} focus:outline-none focus:ring-2 focus:ring-red-500 mr-2">
-            <i class="{{ $provider['icon'] }} fa-lg mr-3"></i>
-           {{$provider['name']}}
-          </a>
+        <a href="{{ route('auth.redirect',['driver' => $provider['driver']]) }}"
+          class="flex items-center justify-center w-1/3 py-3 {{ $provider['color'] }} rounded-lg font-semibold text-white hover:{{ $provider['hoverColor'] }} focus:outline-none focus:ring-2 focus:ring-red-500 mr-2">
+          <i class="{{ $provider['icon'] }} fa-lg mr-3"></i>
+          {{$provider['name']}}
+        </a>
         @endforeach
       </div>
-      <p class="mt-4 text-sm text-center">Don’t have an account? <a href="{{route("register")}}"
+      <p class="mt-4 text-sm text-center">Don’t have an account? <a href="{{route('register')}}"
           class="text-blue-400 hover:underline">Register</a></p>
     </form>
   </div>
