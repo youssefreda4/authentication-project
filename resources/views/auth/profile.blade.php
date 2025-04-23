@@ -10,7 +10,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body class="bg-gray-900 text-white mt-20 flex justify-center p-6">
+<body class="bg-gray-900 text-white mt-10 flex justify-center p-6">
     <div class="container mx-auto mt-10">
         <div class="flex justify-between align-center">
             <h1 class="text-3xl font-bold mb-6">Edit Profile</h1>

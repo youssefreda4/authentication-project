@@ -46,4 +46,8 @@ Route::middleware(['auth', 'auth.session'])->group(function () {
 
     Route::post('/logout', [LogoutController::class, 'logout'])->name('auth.logout');
     Route::post('/logout/{session}', [LogoutController::class, 'logoutOtherDevice'])->name('auth.other.device.logout');
+
+    Route::view('student', 'pages.student')->middleware('role:student');
+    Route::view('teacher', 'pages.teacher')->middleware('role:teacher');
+    Route::view('admin', 'pages.admin')->middleware('role:admin');
 });

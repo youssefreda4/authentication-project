@@ -26,6 +26,7 @@ class RegisterRequest extends FormRequest
             'email' => 'required|string|email|unique:users,email',
             'phone' => 'nullable|unique:users,phone|phone:AUTO',
             'password' => 'required|string|min:6|confirmed',
+            'role'=>'required|string|in:student,teacher',
             'g-recaptcha-response' => 'required|recaptcha',
         ];
     }

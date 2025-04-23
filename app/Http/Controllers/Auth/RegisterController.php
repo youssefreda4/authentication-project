@@ -23,10 +23,11 @@ class RegisterController extends Controller
             'email' => $user_data['email'],
             'phone' => $user_data['phone'],
             'password' => $user_data['password'],
+            'role' => $user_data['role'],
             'otp' =>  rand(100000, 999999),
         ]);
 
-        Mail::to($user->email)->send(new VerifyAccountMail($user->otp,$user->email));
+        Mail::to($user->email)->send(new VerifyAccountMail($user->otp, $user->email));
 
         return redirect()->route('account.verify', $user->email);
     }

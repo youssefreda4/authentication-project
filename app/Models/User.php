@@ -27,6 +27,7 @@ class User extends Authenticatable
         'image',
         'phone',
         'logout_other_devices',
+        'role',
     ];
 
     /**
