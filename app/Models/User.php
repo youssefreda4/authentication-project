@@ -36,6 +36,20 @@ class User extends Authenticatable
         return $this->belongsToMany(Role::class);
     }
 
+    public function permissions(): array
+    {
+        return $this->roles()->with('permissions')->get()
+            ->pluck('permissions')
+            ->flatten()
+            ->pluck('name')
+            ->unique()->toArray();
+    }
+
+    public function hasPermission(string $permission): bool
+    {
+        return in_array($permission,$this->permissions());
+    }
+
     /**
      * The attributes that should be hidden for serialization.
      *

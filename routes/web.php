@@ -51,9 +51,9 @@ Route::middleware(['auth', 'auth.session'])->group(function () {
     Route::post('/logout', [LogoutController::class, 'logout'])->name('auth.logout');
     Route::post('/logout/{session}', [LogoutController::class, 'logoutOtherDevice'])->name('auth.other.device.logout');
 
-    Route::view('student', 'pages.student')->middleware('role:Student');
-    Route::view('teacher', 'pages.teacher')->middleware('role:Teacher');
-    Route::view('admin', 'pages.admin')->middleware('role:Admin');
+    Route::view('student', 'pages.student')->middleware('permission:Student');
+    Route::view('teacher', 'pages.teacher')->middleware('permission:Teacher');
+    Route::view('admin', 'pages.admin')->middleware('permission:Admin');
 });
 Route::get('users', [UserController::class, 'index'])->name('users.index');
 Route::post('users/{user}/change-role', [UserController::class, 'changeRole']);

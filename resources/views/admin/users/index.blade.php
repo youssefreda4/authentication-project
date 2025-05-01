@@ -41,7 +41,9 @@
                             <td class="p-3 border-b border-gray-700 text-{{$user->account_verified_at ? 'green' : 'red'}}-700">{{$user->account_verified_at ? 'Yes' : 'No'}}</td>
                             <td class="p-3 border-b border-gray-700">{{$user->roles->pluck('name')->implode(', ')}}</td>
                             <td class="p-3 border-b border-gray-700">
+                                 @hasPermissionTo(\App\Enums\PermissionEnum::CHANFE_USER_ROLE->value)
                                 <button class="bg-blue-600 text-white px-4 py-2 rounded" onclick="openRoleModal({{$user->id}}, {{json_encode($user->roles->pluck('id'))}})">Change Role</button>
+                                @endhasPermissionTo
                             </td>
                         </tr>
                     @endforeach
