@@ -23,7 +23,6 @@ class RegisterController extends Controller
             'email' => $user_data['email'],
             'phone' => $user_data['phone'],
             'password' => $user_data['password'],
-            'role' => $user_data['role'],
             'otp' =>  rand(100000, 999999),
         ]);
 

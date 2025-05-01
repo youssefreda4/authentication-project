@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Admin\RoleController;
+use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Auth\ChangePasswordController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\Auth\LoginController;
@@ -12,6 +14,8 @@ use App\Http\Controllers\Auth\UpdateProfileController;
 use App\Http\Controllers\Auth\VerifyAccountController;
 use App\Models\Session;
 use Illuminate\Support\Facades\Route;
+
+
 
 
 
@@ -47,7 +51,10 @@ Route::middleware(['auth', 'auth.session'])->group(function () {
     Route::post('/logout', [LogoutController::class, 'logout'])->name('auth.logout');
     Route::post('/logout/{session}', [LogoutController::class, 'logoutOtherDevice'])->name('auth.other.device.logout');
 
-    Route::view('student', 'pages.student')->middleware('role:student');
-    Route::view('teacher', 'pages.teacher')->middleware('role:teacher');
-    Route::view('admin', 'pages.admin')->middleware('role:admin');
+    Route::view('student', 'pages.student')->middleware('role:Student');
+    Route::view('teacher', 'pages.teacher')->middleware('role:Teacher');
+    Route::view('admin', 'pages.admin')->middleware('role:Admin');
 });
+Route::get('users', [UserController::class, 'index'])->name('users.index');
+Route::post('users/{user}/change-role', [UserController::class, 'changeRole']);
+Route::resource('roles', RoleController::class);

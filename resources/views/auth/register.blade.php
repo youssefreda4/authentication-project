@@ -26,17 +26,6 @@
           @enderror
         </div>
         <div>
-          <label for="email" class="block mb-2 text-sm font-medium">Email</label>
-          <input type="email" id="email" name="email" autocomplete="email"
-            class="w-full p-3 rounded bg-gray-700 text-gray-100 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
-            value="{{ old('email') }}">
-          @error('email')
-          <span class="text-sm text-red-500 mt-1">{{ $message }}</span>
-          @enderror
-        </div>
-      </div>
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-        <div>
           <label for="phone" class="block mb-2 text-sm font-medium">Phone</label>
           <input type="text" id="phone" name="phone" autocomplete="phone"
             class="w-full p-3 rounded bg-gray-700 text-gray-100 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
@@ -45,16 +34,15 @@
           <span class="text-sm text-red-500 mt-1">{{ $message }}</span>
           @enderror
         </div>
-
+      </div>
+      <div class="cols-2 gap-4">
         <div>
-          <label for="role" class="block mb-2 text-sm font-medium">Role</label>
-          <select name="role" id="role"
-            class="w-full p-3 rounded bg-gray-700 text-gray-100 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500">
-            <option value="student" {{old('role')=='student' ? 'selected' : '' }}>Student</option>
-            <option value="teacher" {{old('role')=='teacher' ? 'selected' : '' }}>Teacher</option>
-          </select>
-          @error('role')
-          <span class="text-red-500 text-sm mt-1">{{$message}}</span>
+          <label for="email" class="block mb-2 text-sm font-medium">Email</label>
+          <input type="email" id="email" name="email" autocomplete="email"
+            class="w-full p-3 rounded bg-gray-700 text-gray-100 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            value="{{ old('email') }}">
+          @error('email')
+          <span class="text-sm text-red-500 mt-1">{{ $message }}</span>
           @enderror
         </div>
       </div>
