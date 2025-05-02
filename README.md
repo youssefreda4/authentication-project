@@ -25,16 +25,16 @@
 
 ## 🚀 Images
 
-![Account Manager](images/Account-Manager.png)
-![Change Password](images/change-password.png)
-![Final Reset Password](images/finalResetPassword.png)
-![Forgot Password](images/Forgot-Password.png)
 ![Login](images/login.png)
-![Mail OTP](images/mailOtp.png)
-![Mail to Reset Password](images/mailToResetPassword.png)
-![OTP](images/otp.png)
-![Profile](images/profile.png)
 ![Register](images/register.png)
+![Profile](images/profile.png)
+![OTP](images/otp.png)
+![Mail OTP](images/mailOtp.png)
+![Change Password](images/change-password.png)
+![Account Manager](images/Account-Manager.png)
+![Forgot Password](images/Forgot-Password.png)
+![Mail to Reset Password](images/mailToResetPassword.png)
+![Final Reset Password](images/finalResetPassword.png)
 ![Role Management](images/Role-Management.png)
 ![User Management](images/User-Management.png)
 
