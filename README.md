@@ -1,10 +1,5 @@
 # Laravel Authentication
 
-![Laravel Authentication](00_introduction/images/thumbnail.png)
-
-
-This repository contains the **step-by-step source code** for the **Laravel Authentication Series** on YouTube. Each folder corresponds to a video, allowing you to follow the project's progress **from start to finish**.  
-
 ## 📌 Features Implemented  
 
 ### 🔐 Authentication Features  
@@ -24,39 +19,9 @@ This repository contains the **step-by-step source code** for the **Laravel Auth
 
 ### 🛠️ API Endpoints  
 - Login, Register, Logout  
-- User Profile & Update Profile  
+- User Profile 
 - Token Refresh for Persistent Authentication  
 
-## 📂 Repository Structure  
-
-Each folder represents a video in the playlist:  
-📁 [00_introduction](https://github.com/Abdogoda/Laravel-Authentication/tree/main/00_introduction)  
-📁 [01_login_register_logout](https://github.com/Abdogoda/Laravel-Authentication/tree/main/01_login_register_logout)  
-📁 [02_update_profile_change_password](https://github.com/Abdogoda/Laravel-Authentication/tree/main/02_update_profile_change_password)  
-📁 [03_reset_password](https://github.com/Abdogoda/Laravel-Authentication/tree/main/03_reset_password)  
-📁 [04_verify_email_with_otp](https://github.com/Abdogoda/Laravel-Authentication/tree/main/04_verify_email_with_otp)  
-📁 [05_auth_with_google](https://github.com/Abdogoda/Laravel-Authentication/tree/main/05_auth_with_google)  
-📁 [06_auth_with_github](https://github.com/Abdogoda/Laravel-Authentication/tree/main/06_auth_with_github)  
-📁 [07_auth_with_facebook](https://github.com/Abdogoda/Laravel-Authentication/tree/main/07_auth_with_facebook)  
-📁 [08_enhance_social_auth](https://github.com/Abdogoda/Laravel-Authentication/tree/main/08_enhance_social_auth)  
-📁 [09_passwordless_login](https://github.com/Abdogoda/Laravel-Authentication/tree/main/09_passwordless_login)  
-📁 [10_login_with_email_phone](https://github.com/Abdogoda/Laravel-Authentication/tree/main/10_login_with_email_phone)  
-📁 [11_verify_phone_with_otp](https://github.com/Abdogoda/Laravel-Authentication/tree/main/11_verify_phone_with_otp)  
-📁 [12_logout_from_other_devices](https://github.com/Abdogoda/Laravel-Authentication/tree/main/12_logout_from_other_devices)  
-📁 [13_browser_sessions](https://github.com/Abdogoda/Laravel-Authentication/tree/main/13_browser_sessions)  
-📁 [14_remember_me](https://github.com/Abdogoda/Laravel-Authentication/tree/main/14_remember_me)  
-📁 [15_recaptcha](https://github.com/Abdogoda/Laravel-Authentication/tree/main/15_recaptcha)  
-📁 [16_role_based_authentication](https://github.com/Abdogoda/Laravel-Authentication/tree/main/16_role_based_authentication)  
-📁 [17_create_admin_with_command](https://github.com/Abdogoda/Laravel-Authentication/tree/main/17_create_admin_with_command)  
-📁 [18_roles_and_users_crud](https://github.com/Abdogoda/Laravel-Authentication/tree/main/18_roles_and_users_crud)  
-📁 [19_permissions_based_authentication](https://github.com/Abdogoda/Laravel-Authentication/tree/main/19_permissions_based_authentication)  
-📁 [20_api_authentication](https://github.com/Abdogoda/Laravel-Authentication/tree/main/20_api_authentication)  
-📁 [21_refresh_and_access_tokens](https://github.com/Abdogoda/Laravel-Authentication/tree/main/21_refresh_and_access_tokens)  
-
-This structure allows you to follow along **step by step** and see the project's evolution.  
-
-## 📺 Watch the Playlist on YouTube  
-📌 [Laravel Authentication Series](https://youtube.com/playlist?list=PLBy71Vfd0SzVaLjezaxqjnSsK8_p_aTcp&si=p3DluiMX7-euuw3A)  
 
 ## 🚀 How to Use This Repo  
 
