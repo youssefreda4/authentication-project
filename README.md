@@ -25,7 +25,7 @@
 
 ## 🚀 Images
 
-![Login](images/login.png)
+![Login](images/login-page.png)
 ![Register](images/register.png)
 ![Profile](images/profile.png)
 ![OTP](images/otp.png)
