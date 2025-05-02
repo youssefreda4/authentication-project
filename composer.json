@@ -9,6 +9,7 @@
         "biscolab/laravel-recaptcha": "^6.1",
         "jenssegers/agent": "^2.6",
         "laravel/framework": "^11.9",
+        "laravel/sanctum": "^4.0",
         "laravel/socialite": "^5.19",
         "laravel/tinker": "^2.9",
         "propaganistas/laravel-phone": "^5.3"
